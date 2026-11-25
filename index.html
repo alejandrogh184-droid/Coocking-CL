@@ -1,244 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Innovation Plan Toolbox for EFL Teachers in Chile</title>
-<meta name="description" content="A toolbox for EFL teachers in Chile to plan innovation in the transition from 8º básico to 1º medio.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guía de comidas saludables (Chile)</title>
 <style>
-:root{
-  --paper:#F0F8F1; --ink:#1E3A2D; --muted:#4D6A5B; --line:#CFE3D4;
-  --blue:#2F7D5A; --btn:#A8DDB9; --sun:#C6EBD0; --white:#FFFFFF;
-  --head:'Bricolage Grotesque',Georgia,sans-serif;
-  --body:'Instrument Sans',system-ui,-apple-system,Segoe UI,sans-serif;
-}
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
-a{color:var(--blue)}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
-h1,h2,h3{font-family:var(--head);line-height:1.1;letter-spacing:-.02em}
-h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:1rem}
-section{padding:4.5rem 0;border-top:2px solid var(--ink)}
-p{max-width:62ch}
-
-/* nav */
-header{position:sticky;top:0;background:var(--paper);z-index:5;border-bottom:2px solid var(--ink)}
-nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 1.25rem;max-width:1040px;margin:0 auto}
-.logo{font-family:var(--head);font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--ink)}
-nav ul{display:flex;gap:1.25rem;list-style:none;padding:0}
-nav ul a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
-nav ul a:hover{text-decoration:underline}
-@media(max-width:600px){nav ul{gap:.8rem}nav ul a{font-size:.85rem}}
-
-/* hero */
-.hero{padding:5rem 0 4rem;border-top:0}
-.hero h1{font-size:clamp(2.8rem,9vw,6rem);font-weight:800;max-width:11ch}
-.hero h1 span{background:var(--sun);padding:0 .15em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.hero p{font-size:1.25rem;margin:1.5rem 0 2rem;color:var(--muted)}
-.btn{display:inline-block;background:var(--btn);color:var(--ink);font-weight:600;text-decoration:none;padding:.85rem 1.5rem;border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
-.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
-.btn.alt{background:var(--white);color:var(--ink);margin-left:.6rem}
-
-/* qué / por qué */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-@media(max-width:760px){.two{grid-template-columns:1fr;gap:2rem}}
-.why{background:#CDE9D6;color:var(--ink);border:2px solid var(--ink);padding:2rem;border-radius:4px}
-.why h3{font-size:1.5rem;margin-bottom:.8rem}
-.why ul{padding-left:1.1rem}
-.why li{margin:.5rem 0}
-
-/* tools */
-.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 2rem}
-.filters button{font:inherit;font-weight:500;background:transparent;color:var(--ink);border:2px solid var(--ink);padding:.4rem 1rem;border-radius:99px;cursor:pointer}
-.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.9rem;align-items:start}
-.tool{background:var(--white);border:2px solid var(--ink);border-radius:4px;border-top-width:8px}
-.tool[data-phase="Discover"]{border-top-color:#8FD0A8}
-.tool[data-phase="Ideate"]{border-top-color:#D3EBB3}
-.tool[data-phase="Test"]{border-top-color:#A9DFD3}
-.tool[data-phase="Scale"]{border-top-color:#6DBB92}
-.tool summary{list-style:none;cursor:pointer;padding:.8rem 2.2rem .8rem .9rem;position:relative;display:flex;flex-direction:column;gap:.15rem}
-.tool summary::-webkit-details-marker{display:none}
-.tool summary::after{content:"+";position:absolute;right:.8rem;top:.6rem;font-family:var(--head);font-weight:700;font-size:1.3rem;line-height:1}
-.tool details[open] summary::after{content:"\2212"}
-.tool summary:hover{background:#EAF6ED}
-.tool h3{font-size:1.05rem;line-height:1.2}
-.tool p{font-size:.95rem;color:var(--muted);padding:0 .9rem .9rem}
-.meta{font-size:.8rem;font-weight:600;color:var(--muted)}
-.tool[hidden]{display:none}
-
-/* contacto */
-.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;margin-top:1.5rem}
-.contact{border:2px solid var(--ink);padding:1.2rem;background:#E3F3E7;border-radius:4px}
-.contact strong{font-family:var(--head);font-size:1.15rem;display:block}
-.contact span{display:block;color:var(--muted);font-size:.95rem;margin-bottom:.4rem}
-footer{border-top:2px solid var(--ink);padding:2rem 0;font-size:.9rem;color:var(--muted)}
+:root{--bg:#f7f5ef;--card:#fff;--tx:#1f2a24;--mu:#5d6b63;--ac:#2f7d4f;--acl:#dff0e5;--bd:#e0ddd3;--wa:#b4591b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151b17;--card:#1f2822;--tx:#e8efe9;--mu:#9fb0a5;--ac:#6cc58f;--acl:#26402f;--bd:#334038;--wa:#e8975a}}
+:root[data-theme="dark"]{--bg:#151b17;--card:#1f2822;--tx:#e8efe9;--mu:#9fb0a5;--ac:#6cc58f;--acl:#26402f;--bd:#334038;--wa:#e8975a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.1rem;margin:24px 0 8px}
+.sub{color:var(--mu);margin:0 0 16px}
+.plate{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.plate div{flex:1 1 150px;background:var(--acl);border-radius:10px;padding:10px;font-size:.9rem}
+.plate b{display:block;font-size:1rem}
+.cat{margin:12px 0 4px;font-weight:600;font-size:.9rem;color:var(--mu)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:6px 12px;font:inherit;font-size:.9rem;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ac);color:#fff;border-color:var(--ac)}
+.bar{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.clr{background:none;border:none;color:var(--ac);font:inherit;cursor:pointer;text-decoration:underline}
+.rec{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin:10px 0}
+.rec h3{margin:0 0 2px;font-size:1.05rem}
+.tag{display:inline-block;font-size:.75rem;background:var(--acl);border-radius:6px;padding:1px 8px;margin-right:6px}
+.pct{float:right;font-weight:700;color:var(--ac)}
+.miss{color:var(--wa);font-size:.9rem}
+.rec ol{margin:8px 0 6px;padding-left:20px}
+.tip{font-size:.88rem;color:var(--mu)}
+.note{margin-top:28px;font-size:.82rem;color:var(--mu);border-top:1px solid var(--bd);padding-top:12px}
 </style>
 </head>
 <body>
-
-<header>
-  <nav aria-label="Main">
-    <a class="logo" href="#home">Innovation Plan Toolbox</a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#why">Why</a></li>
-      <li><a href="#tools">Tools</a></li>
-      <li><a href="#share">Share</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
 <main>
-<section class="hero" id="home">
-  <div class="wrap">
-    <h1>From <span>8th grade</span> to 1st year of high school.</h1>
-    <p>An innovation planning toolbox for EFL teachers in Chile: understand your students, design better lessons, test them fast and build a plan that lasts the whole school year.</p>
-    <a class="btn" href="#tools">Explore the tools</a>
-    <a class="btn alt" href="#contact">Contact us</a>
-  </div>
-</section>
+<h1>Guía de comidas saludables</h1>
+<p class="sub">Prototipo con ingredientes fáciles de conseguir en Chile, pensado para cuidar la glicemia y prevenir diabetes tipo 2.</p>
 
-<section id="about">
-  <div class="wrap two">
-    <div>
-      <h2>What it is</h2>
-      <p>The Innovation Plan Toolbox is a set of practical tools for English teachers working with students who move from 8º básico to 1º medio. Each tool has a clear purpose, simple steps and a concrete result.</p>
-      <p style="margin-top:1rem">Use them in order to build a full innovation plan, or pick the one you need for the challenge you have this week.</p>
-    </div>
-    <div>
-      <h2>How it works</h2>
-      <p>The tools are grouped into four phases: <strong>Discover</strong> what your students need, <strong>Ideate</strong> new classroom strategies, <strong>Test</strong> them with small experiments and <strong>Scale</strong> what works.</p>
-      <p style="margin-top:1rem">Choose a phase, open a tool and work on your own or with your department.</p>
-    </div>
-  </div>
-</section>
+<h2>El plato base</h2>
+<div class="plate">
+<div><b>½ verduras</b>Sin almidón: ensaladas, zapallo italiano, brócoli, acelga.</div>
+<div><b>¼ proteína</b>Pescado, pollo, huevo, legumbres.</div>
+<div><b>¼ carbohidrato</b>Integral y en porción pequeña: quinoa, arroz integral, legumbres.</div>
+</div>
 
-<section id="why">
-  <div class="wrap two">
-    <div>
-      <h2>The why behind it</h2>
-      <p>The move from primary to secondary school is a delicate moment for English learning. Students face more demanding content, a new school routine and, often, a drop in motivation and confidence.</p>
-      <p style="margin-top:1rem">Many teachers want to innovate but have little time and no shared method. This toolbox gives EFL teachers a common language and small, realistic steps to make this transition smoother for their students.</p>
-    </div>
-    <div class="why">
-      <h3>What we aim for</h3>
-      <ul>
-        <li>Close the gap between 8º básico and 1º medio.</li>
-        <li>Keep students motivated and speaking English.</li>
-        <li>Decide with evidence from your own classroom.</li>
-        <li>Share what works with other teachers.</li>
-      </ul>
-    </div>
-  </div>
-</section>
+<h2>1. Marca lo que tienes</h2>
+<div class="bar"><span class="sub" id="cnt" style="margin:0">0 ingredientes</span><button class="clr" id="clr">Limpiar</button></div>
+<div id="chips"></div>
+<div class="cat">Agrega otro ingrediente</div>
+<div class="bar" style="justify-content:flex-start"><input id="newi" placeholder="Ej: berenjena" style="flex:1 1 180px;padding:8px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit"><button class="chip" id="addb" style="background:var(--ac);color:#fff;border-color:var(--ac)">Agregar</button></div>
+<div class="chips" id="mine" style="margin-top:8px"></div>
+<p class="tip">Los ingredientes nuevos solo generan recetas si coinciden con alguna de la guía. Dime cuáles agregaste y los incorporo con sus propias recetas.</p>
 
-<section id="tools">
-  <div class="wrap">
-    <h2>The tools</h2>
-    <p>Filter by phase and tap a tool to see its description.</p>
-    <div class="filters" role="group" aria-label="Filter by phase">
-      <button aria-pressed="true" data-f="All">All</button>
-      <button aria-pressed="false" data-f="Discover">Discover</button>
-      <button aria-pressed="false" data-f="Ideate">Ideate</button>
-      <button aria-pressed="false" data-f="Test">Test</button>
-      <button aria-pressed="false" data-f="Scale">Scale</button>
-    </div>
+<h2>2. Ideas para hoy</h2>
+<div id="out"></div>
 
-    <!-- To add a tool: copy an <article> block and change the text and data-phase -->
-    <div class="grid">
-      <article class="tool" data-phase="Discover">
-        <details><summary><h3>Student voice survey</h3><span class="meta">Discover · 30 min</span></summary><p>A short survey to learn how your students feel about English, what they enjoy and where they feel stuck.</p></details>
-      </article>
-      <article class="tool" data-phase="Discover">
-        <details><summary><h3>Transition gap map</h3><span class="meta">Discover · 60 min</span></summary><p>Compare skills and content from 8º básico with what 1º medio expects, and spot the gaps to work on.</p></details>
-      </article>
-      <article class="tool" data-phase="Ideate">
-        <details><summary><h3>Activity brainstorm + SCAMPER</h3><span class="meta">Ideate · 60 min</span></summary><p>Generate classroom activity ideas and adapt your current ones using seven guiding questions.</p></details>
-      </article>
-      <article class="tool" data-phase="Ideate">
-        <details><summary><h3>Backward lesson planner</h3><span class="meta">Ideate · 90 min</span></summary><p>Start from the learning goal, define how you will know students reached it, then design the lessons.</p></details>
-      </article>
-      <article class="tool" data-phase="Test">
-        <details><summary><h3>Mini-pilot lesson</h3><span class="meta">Test · 1 class</span></summary><p>Try a new activity with one course for a single class and collect quick feedback from students.</p></details>
-      </article>
-      <article class="tool" data-phase="Test">
-        <details><summary><h3>Experiment matrix</h3><span class="meta">Test · 45 min</span></summary><p>Write your hypothesis, how you will measure it and what counts as success before you try a new strategy.</p></details>
-      </article>
-      <article class="tool" data-phase="Scale">
-        <details><summary><h3>Reflection log</h3><span class="meta">Scale · 15 min/week</span></summary><p>Record what worked, what did not and what you will change, so your learning is not lost.</p></details>
-      </article>
-      <article class="tool" data-phase="Scale">
-        <details><summary><h3>Innovation roadmap</h3><span class="meta">Scale · 2 h</span></summary><p>Order your initiatives by impact and effort and set milestones for each term of the school year.</p></details>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="share">
-  <div class="wrap two">
-    <div>
-      <h2>Share your practice</h2>
-      <p>Did you try one of these tools in your classroom? Tell us what you did, what you observed and what you concluded. Your experience can help other EFL teachers.</p>
-      <p style="margin-top:1rem">It takes about 5 minutes. Please do not include students' names or personal data.</p>
-      <p style="margin-top:1.5rem"><a class="btn" href="PASTE-YOUR-GOOGLE-FORM-LINK-HERE" target="_blank" rel="noopener">Open the form</a></p>
-    </div>
-    <div class="why">
-      <h3>The form asks for</h3>
-      <ul>
-        <li>The tool you used and the course level.</li>
-        <li>Your checklist or steps.</li>
-        <li>Your observations.</li>
-        <li>Your conclusions.</li>
-        <li>The strategy you used and whether you would repeat it.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <h2>Contact</h2>
-    <p>Want to use the toolbox with your department, suggest a tool or ask a question? Write to us.</p>
-    <div class="contacts">
-      <div class="contact">
-        <strong>Alejandro Garcia</strong>
-        <span>Project coordination</span>
-        <a href="mailto:alejandro.garcia.h@mail.pucv.cl">alejandro.garcia.h@mail.pucv.cl</a>
-      </div>
-      <div class="contact">
-        <strong>Alvaro Moreno</strong>
-        <span>Methodology and tools</span>
-        <a href="mailto:alvaro.moreno.s@mail.pucv.cl">alvaro.moreno.s@mail.pucv.cl</a>
-      </div>
-      <div class="contact">
-        <strong>Valentina Farias</strong>
-        <span>Partnerships and support</span>
-        <a href="mailto:valentina.farias.c@mail.pucv.cl">valentina.farias.c@mail.pucv.cl</a>
-      </div>
-    </div>
-  </div>
-</section>
+<p class="note">Guía orientativa, no reemplaza a un médico ni a un nutricionista. Si ya tienes diagnóstico de diabetes o prediabetes, o tomas medicamentos, ajusta porciones y horarios con un profesional. Los básicos (sal, pimienta, aceite de oliva, ají o merkén) se asumen siempre disponibles.</p>
 </main>
-
-<footer>
-  <div class="wrap">© 2026 Innovation Plan Toolbox · For EFL teachers in Chile</div>
-</footer>
-
 <script>
-const btns=document.querySelectorAll('.filters button');
-const tools=document.querySelectorAll('.tool');
-btns.forEach(b=>b.addEventListener('click',()=>{
-  btns.forEach(x=>x.setAttribute('aria-pressed',x===b));
-  tools.forEach(t=>t.hidden=!(b.dataset.f==='All'||t.dataset.phase===b.dataset.f));
-}));
+var ING={
+"Proteínas":["pollo","pavita","merluza","jurel","salmón","atún en agua","huevos","queso fresco","yogur natural"],
+"Legumbres y cereales":["lentejas","porotos","garbanzos","quinoa","arroz integral","avena"],
+"Verduras":["acelga","espinaca","brócoli","coliflor","zapallo italiano","zapallo camote","zanahoria","tomate","lechuga","pepino","pimentón","cebolla","ajo","choclo"],
+"Otros":["palta","limón","cilantro","perejil","aceite de oliva","manzana"]};
+var R=[
+{n:"Lentejas con verduras",t:"Almuerzo",i:["lentejas","zanahoria","cebolla","ajo","zapallo camote","espinaca"],s:["Cuece las lentejas (sin remojo) con cebolla, ajo y zanahoria picados.","Agrega zapallo camote en cubos pequeños los últimos 15 min.","Suma espinaca al final y sirve con ensalada de tomate."],k:"Las legumbres tienen fibra que modera el alza de glicemia. Evita añadir arroz blanco o fideos."},
+{n:"Ensalada chilena con atún y palta",t:"Almuerzo liviano",i:["tomate","cebolla","cilantro","atún en agua","palta","limón"],s:["Corta tomate y cebolla en pluma; lava la cebolla con agua para suavizarla.","Mezcla con cilantro, limón y aceite de oliva.","Termina con atún escurrido y un cuarto de palta."],k:"Palta: media unidad como máximo, aporta grasas buenas pero es calórica."},
+{n:"Merluza al horno con verduras",t:"Almuerzo / cena",i:["merluza","zapallo italiano","tomate","limón","ajo"],s:["Pon rodajas de zapallo italiano y tomate en una fuente.","Ubica la merluza encima con ajo, limón y un chorrito de aceite.","Hornea 20 min a 180 °C."],k:"Pescado al menos 2 veces por semana; el jurel y el salmón aportan omega 3."},
+{n:"Pollo al horno con zapallo camote y brócoli",t:"Almuerzo",i:["pollo","zapallo camote","brócoli","ajo","limón"],s:["Marina el pollo sin piel con ajo, limón y merkén.","Hornea con zapallo camote en trozos 35 min.","Agrega el brócoli los últimos 10 min."],k:"Mantén el zapallo camote en una porción del tamaño de tu puño."},
+{n:"Tortilla de espinaca",t:"Cena rápida",i:["huevos","espinaca","cebolla","queso fresco"],s:["Saltea cebolla y espinaca en sartén antiadherente.","Vierte 2 huevos batidos y agrega cubitos de queso fresco.","Cocina tapada a fuego bajo y sirve con tomate."],k:"Hecha al sartén con poco aceite, queda liviana y saciante."},
+{n:"Ensalada de garbanzos",t:"Almuerzo liviano",i:["garbanzos","pepino","tomate","cebolla","limón","cilantro"],s:["Enjuaga garbanzos cocidos.","Mezcla con pepino, tomate y cebolla picados.","Aliña con limón, aceite de oliva y cilantro."],k:"Si usas garbanzos de lata, enjuágalos para reducir el sodio."},
+{n:"Quinoa con verduras salteadas",t:"Almuerzo",i:["quinoa","pimentón","zanahoria","zapallo italiano","cebolla","huevos"],s:["Cuece la quinoa (1 parte por 2 de agua) 15 min.","Saltea cebolla, pimentón, zanahoria y zapallo italiano.","Mezcla y corona con un huevo poché o duro."],k:"La quinoa tiene más proteína que el arroz; porción de ½ taza cocida."},
+{n:"Salmón a la plancha con ensalada",t:"Almuerzo / cena",i:["salmón","lechuga","tomate","palta","limón"],s:["Cocina el salmón 4 min por lado con limón.","Arma ensalada de lechuga, tomate y un poco de palta.","Sirve todo junto, sin pan."],k:"Un trozo del tamaño de la palma de tu mano es una buena porción."},
+{n:"Pavita salteada con brócoli y arroz integral",t:"Almuerzo",i:["pavita","brócoli","arroz integral","ajo","zanahoria"],s:["Cuece el arroz integral (unos 40 min).","Saltea la pavita en tiras con ajo y zanahoria.","Agrega brócoli al vapor y sirve con ¼ de plato de arroz."],k:"Vale la pena cocer arroz integral para varios días y refrigerar: enfriado, se digiere más lento."},
+{n:"Crema de coliflor",t:"Cena liviana",i:["coliflor","cebolla","ajo","yogur natural","perejil"],s:["Cuece coliflor con cebolla y ajo en agua.","Muele con un poco del caldo.","Sirve con una cucharada de yogur natural y perejil."],k:"Alternativa baja en carbohidratos a las cremas con papa o zapallo camote."},
+{n:"Porotos con choclo y verduras",t:"Almuerzo",i:["porotos","choclo","zapallo italiano","cebolla","tomate","ajo"],s:["Cuece los porotos con cebolla y ajo.","Agrega zapallo italiano, tomate y choclo desgranado.","Cocina 15 min y termina con albahaca o cilantro."],k:"Versión liviana del porotos granados: más verduras, menos zapallo y choclo."}
+];
+var sel={},ch=document.getElementById("chips");
+function render(){
+ var keys=Object.keys(sel).filter(function(k){return sel[k]});
+ document.getElementById("cnt").textContent=keys.length+(keys.length==1?" ingrediente":" ingredientes");
+ var out=document.getElementById("out");
+ if(!keys.length){out.innerHTML='<p class="sub">Selecciona ingredientes para ver qué puedes preparar.</p>';return}
+ var sc=R.map(function(r){var h=r.i.filter(function(x){return sel[x]});return{r:r,h:h.length,m:r.i.filter(function(x){return !sel[x]})}})
+  .filter(function(o){return o.h>0}).sort(function(a,b){return b.h/b.r.i.length-a.h/a.r.i.length});
+ if(!sc.length){out.innerHTML='<p class="sub">Ninguna receta coincide aún. Prueba sumar más ingredientes.</p>';return}
+ out.innerHTML=sc.map(function(o){var r=o.r,p=Math.round(100*o.h/r.i.length);
+  return '<div class="rec"><span class="pct">'+p+'%</span><h3>'+r.n+'</h3><span class="tag">'+r.t+'</span>'+
+  (o.m.length?'<div class="miss">Te falta: '+o.m.join(", ")+'</div>':'<div class="tip">Tienes todo.</div>')+
+  '<ol>'+r.s.map(function(s){return'<li>'+s+'</li>'}).join("")+'</ol><div class="tip">Consejo: '+r.k+'</div></div>'}).join("");
+}
+Object.keys(ING).forEach(function(c){
+ var d=document.createElement("div");d.innerHTML='<div class="cat">'+c+'</div>';
+ var w=document.createElement("div");w.className="chips";
+ ING[c].forEach(function(n){var b=document.createElement("button");b.className="chip";b.textContent=n;b.setAttribute("aria-pressed","false");
+  b.onclick=function(){sel[n]=!sel[n];b.setAttribute("aria-pressed",sel[n]);render()};w.appendChild(b)});
+ d.appendChild(w);ch.appendChild(d)});
+function nz(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
+function addIng(){var inp=document.getElementById("newi"),v=inp.value.trim();if(!v)return;var k=nz(v),f=null;
+ document.querySelectorAll(".chip").forEach(function(b){if(b.id!=="addb"&&nz(b.textContent)==k)f=b});
+ if(f){sel[f.textContent]=true;f.setAttribute("aria-pressed","true")}
+ else{var n=v.toLowerCase(),b=document.createElement("button");b.className="chip";b.textContent=n;sel[n]=true;b.setAttribute("aria-pressed","true");
+  b.onclick=function(){sel[n]=!sel[n];b.setAttribute("aria-pressed",sel[n]);render()};document.getElementById("mine").appendChild(b)}
+ inp.value="";render()}
+document.getElementById("addb").onclick=addIng;
+document.getElementById("newi").onkeydown=function(e){if(e.key==="Enter")addIng()};
+document.getElementById("clr").onclick=function(){sel={};document.querySelectorAll(".chip").forEach(function(b){b.setAttribute("aria-pressed","false")});render()};
+render();
 </script>
 </body>
 </html>
