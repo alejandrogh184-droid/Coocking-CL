@@ -30,13 +30,24 @@ h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.1rem;margin:24px 0 8px}
 .miss{color:var(--wa);font-size:.9rem}
 .rec ol{margin:8px 0 6px;padding-left:20px}
 .tip{font-size:.88rem;color:var(--mu)}
-.note{margin-top:28px;font-size:.82rem;color:var(--mu);border-top:1px solid var(--bd);padding-top:12px}
+.pic{display:flex;gap:6px;font-size:1.8rem;background:var(--acl);border-radius:10px;padding:8px 12px;margin-bottom:8px;letter-spacing:2px}.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.key{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;font-size:.92rem}.key b{display:block;margin-bottom:2px}.refs{font-size:.82rem;color:var(--mu);padding-left:18px}.note{margin-top:28px;font-size:.82rem;color:var(--mu);border-top:1px solid var(--bd);padding-top:12px}
 </style>
 </head>
 <body>
 <main>
 <h1>Guía de comidas saludables</h1>
 <p class="sub">Prototipo con ingredientes fáciles de conseguir en Chile, pensado para cuidar la glicemia y prevenir diabetes tipo 2.</p>
+
+<h2>Claves para cuidar tu glicemia</h2>
+<div class="keys">
+<div class="key"><b>🥬 Verduras y frutas</b>Las Guías Alimentarias para Chile las recomiendan en todo lo que comes: aportan fibra y llenan el plato con pocos carbohidratos.</div>
+<div class="key"><b>🫘 Legumbres</b>Las guías chilenas sugieren comerlas en guisos y ensaladas todas las veces que puedas. Aportan fibra y proteína.</div>
+<div class="key"><b>🐟 Pescados y mariscos</b>Las guías recomiendan aumentar su consumo, siempre de lugares autorizados.</div>
+<div class="key"><b>🌾 Integral y en porción</b>Prefiere cereales integrales y limita los carbohidratos a un cuarto del plato.</div>
+<div class="key"><b>🥤 Menos azúcar líquida</b>Evita bebidas azucaradas y ultraprocesados; el agua es la mejor bebida.</div>
+<div class="key"><b>🏃 Movimiento y peso</b>En el estudio Diabetes Prevention Program, cambiar la alimentación y hacer actividad física redujo 58 % la aparición de diabetes tipo 2 en adultos con riesgo (Knowler et al., 2002).</div>
+</div>
+<p class="tip">Compra alimentos frescos en ferias y mercados (Minsal, 2022). Referencias completas al final.</p>
 
 <h2>El plato base</h2>
 <div class="plate">
@@ -51,19 +62,26 @@ h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.1rem;margin:24px 0 8px}
 <div class="cat">Agrega otro ingrediente</div>
 <div class="bar" style="justify-content:flex-start"><input id="newi" placeholder="Ej: berenjena" style="flex:1 1 180px;padding:8px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit"><button class="chip" id="addb" style="background:var(--ac);color:#fff;border-color:var(--ac)">Agregar</button></div>
 <div class="chips" id="mine" style="margin-top:8px"></div>
-<p class="tip">Los ingredientes nuevos solo generan recetas si coinciden con alguna de la guía. Dime cuáles agregaste y los incorporo con sus propias recetas.</p>
+<p class="tip">Los ingredientes nuevos solo generan recetas si coinciden con alguna de la guía.</p>
 
 <h2>2. Ideas para hoy</h2>
 <div id="out"></div>
 
+<h2>Referencias (APA 7)</h2>
+<ul class="refs">
+<li>Knowler, W. C., Barrett-Connor, E., Fowler, S. E., Hamman, R. F., Lachin, J. M., Walker, E. A., &amp; Nathan, D. M. (2002). Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. <i>New England Journal of Medicine, 346</i>(6), 393–403. https://doi.org/10.1056/NEJMoa012512</li>
+<li>Ministerio de Salud de Chile. (2022). <i>Guías alimentarias para Chile</i>. https://www.minsal.cl/guias-alimentarias-para-chile/</li>
+</ul>
+<h2>Imágenes</h2>
+<p class="tip">Las ilustraciones de cada receta son emojis del sistema, por lo que no requieren atribución. Si agregas fotos propias o con licencia abierta, indica el autor y la fuente en cada receta.</p>
 <p class="note">Guía orientativa, no reemplaza a un médico ni a un nutricionista. Si ya tienes diagnóstico de diabetes o prediabetes, o tomas medicamentos, ajusta porciones y horarios con un profesional. Los básicos (sal, pimienta, aceite de oliva, ají o merkén) se asumen siempre disponibles.</p>
 </main>
 <script>
 var ING={
-"Proteínas":["pollo","pavita","merluza","jurel","salmón","atún en agua","huevos","queso fresco","yogur natural"],
+"Proteínas":["pollo","pavita","merluza","jurel","salmón","atún en agua","huevos","queso fresco","yogur natural","reineta","choritos","posta de vacuno"],
 "Legumbres y cereales":["lentejas","porotos","garbanzos","quinoa","arroz integral","avena"],
-"Verduras":["acelga","espinaca","brócoli","coliflor","zapallo italiano","zapallo camote","zanahoria","tomate","lechuga","pepino","pimentón","cebolla","ajo","choclo"],
-"Otros":["palta","limón","cilantro","perejil","aceite de oliva","manzana"]};
+"Verduras":["acelga","espinaca","brócoli","coliflor","zapallo italiano","zapallo camote","zanahoria","tomate","lechuga","pepino","pimentón","cebolla","ajo","choclo","berenjena","champiñones","repollo","betarraga","apio","arvejas","porotos verdes"],
+"Otros":["palta","limón","cilantro","perejil","aceite de oliva","manzana","nueces","canela"]};
 var R=[
 {n:"Lentejas con verduras",t:"Almuerzo",i:["lentejas","zanahoria","cebolla","ajo","zapallo camote","espinaca"],s:["Cuece las lentejas (sin remojo) con cebolla, ajo y zanahoria picados.","Agrega zapallo camote en cubos pequeños los últimos 15 min.","Suma espinaca al final y sirve con ensalada de tomate."],k:"Las legumbres tienen fibra que modera el alza de glicemia. Evita añadir arroz blanco o fideos."},
 {n:"Ensalada chilena con atún y palta",t:"Almuerzo liviano",i:["tomate","cebolla","cilantro","atún en agua","palta","limón"],s:["Corta tomate y cebolla en pluma; lava la cebolla con agua para suavizarla.","Mezcla con cilantro, limón y aceite de oliva.","Termina con atún escurrido y un cuarto de palta."],k:"Palta: media unidad como máximo, aporta grasas buenas pero es calórica."},
@@ -75,9 +93,26 @@ var R=[
 {n:"Salmón a la plancha con ensalada",t:"Almuerzo / cena",i:["salmón","lechuga","tomate","palta","limón"],s:["Cocina el salmón 4 min por lado con limón.","Arma ensalada de lechuga, tomate y un poco de palta.","Sirve todo junto, sin pan."],k:"Un trozo del tamaño de la palma de tu mano es una buena porción."},
 {n:"Pavita salteada con brócoli y arroz integral",t:"Almuerzo",i:["pavita","brócoli","arroz integral","ajo","zanahoria"],s:["Cuece el arroz integral (unos 40 min).","Saltea la pavita en tiras con ajo y zanahoria.","Agrega brócoli al vapor y sirve con ¼ de plato de arroz."],k:"Vale la pena cocer arroz integral para varios días y refrigerar: enfriado, se digiere más lento."},
 {n:"Crema de coliflor",t:"Cena liviana",i:["coliflor","cebolla","ajo","yogur natural","perejil"],s:["Cuece coliflor con cebolla y ajo en agua.","Muele con un poco del caldo.","Sirve con una cucharada de yogur natural y perejil."],k:"Alternativa baja en carbohidratos a las cremas con papa o zapallo camote."},
-{n:"Porotos con choclo y verduras",t:"Almuerzo",i:["porotos","choclo","zapallo italiano","cebolla","tomate","ajo"],s:["Cuece los porotos con cebolla y ajo.","Agrega zapallo italiano, tomate y choclo desgranado.","Cocina 15 min y termina con albahaca o cilantro."],k:"Versión liviana del porotos granados: más verduras, menos zapallo y choclo."}
+{n:"Porotos con choclo y verduras",t:"Almuerzo",i:["porotos","choclo","zapallo italiano","cebolla","tomate","ajo"],s:["Cuece los porotos con cebolla y ajo.","Agrega zapallo italiano, tomate y choclo desgranado.","Cocina 15 min y termina con albahaca o cilantro."],k:"Versión liviana del porotos granados: más verduras, menos zapallo y choclo."},
+{n:"Charquicán liviano",t:"Almuerzo",i:["posta de vacuno","zapallo camote","zanahoria","cebolla","choclo","arvejas","huevos"],s:["Saltea la posta picada con cebolla y ajo.","Agrega zapallo camote y zanahoria en cubos con un poco de agua hasta que se deshagan.","Suma choclo y arvejas, y sirve con un huevo poché."],k:"Reemplazar parte de la papa por verduras baja la carga de almidón del plato."},
+{n:"Choritos al limón con ensalada",t:"Almuerzo liviano",i:["choritos","limón","cilantro","cebolla","tomate"],s:["Cuece los choritos al vapor hasta que abran.","Pica cebolla, tomate y cilantro, y aliña con limón.","Sirve los choritos con la ensalada encima."],k:"Mariscos aportan proteína con muy pocos carbohidratos."},
+{n:"Reineta al horno con brócoli",t:"Almuerzo / cena",i:["reineta","brócoli","limón","ajo"],s:["Pon la reineta en una fuente con ajo y limón.","Rodea con brócoli en ramitos y un chorrito de aceite.","Hornea 20 min a 180 °C."],k:"Fácil de preparar y sin carbohidratos añadidos."},
+{n:"Cazuela liviana de pavita",t:"Almuerzo",i:["pavita","zapallo camote","choclo","zanahoria","porotos verdes","cilantro"],s:["Hierve la pavita con zanahoria y cebolla 20 min.","Agrega zapallo camote, choclo y porotos verdes.","Cocina 15 min más y termina con cilantro."],k:"Pide menos papa y arroz, y un trozo de choclo o zapallo del tamaño de un puño."},
+{n:"Revuelto de huevos con champiñones",t:"Cena rápida",i:["huevos","champiñones","espinaca","cebolla"],s:["Saltea cebolla y champiñones laminados.","Agrega espinaca hasta que se achique.","Vierte 2 huevos batidos y revuelve a fuego bajo."],k:"Lista en 10 minutos y muy saciante."},
+{n:"Berenjena rellena de pavita",t:"Almuerzo / cena",i:["berenjena","pavita","tomate","cebolla","queso fresco"],s:["Corta la berenjena a la mitad y hornéala 20 min.","Saltea pavita molida con cebolla y tomate.","Rellena, cubre con queso fresco y gratina 5 min."],k:"La berenjena aporta fibra y casi no tiene azúcares."},
+{n:"Ensalada tibia de lentejas y betarraga",t:"Almuerzo liviano",i:["lentejas","betarraga","cebolla","limón","perejil"],s:["Cuece lentejas hasta que estén firmes y escúrrelas.","Mezcla con betarraga cocida en cubos y cebolla fina.","Aliña con limón, aceite de oliva y perejil."],k:"Usa la betarraga en porción moderada: tiene azúcares naturales."},
+{n:"Ensalada de repollo y atún",t:"Almuerzo liviano",i:["repollo","zanahoria","atún en agua","limón","yogur natural"],s:["Corta repollo muy fino y ralla la zanahoria.","Mezcla yogur natural con limón como aderezo.","Suma el atún escurrido y revuelve."],k:"El yogur natural reemplaza a la mayonesa y baja las calorías."},
+{n:"Sopa de verduras con pollo",t:"Cena liviana",i:["pollo","apio","zanahoria","zapallo italiano","cebolla","perejil"],s:["Hierve pollo sin piel con apio, cebolla y zanahoria.","Retira el pollo, desmenúzalo y devuélvelo.","Agrega zapallo italiano 10 min y termina con perejil."],k:"Ideal para la noche: liviana y con proteína."},
+{n:"Avena con yogur, manzana y nueces",t:"Desayuno / colación",i:["avena","yogur natural","manzana","canela","nueces"],s:["Mezcla 3 cucharadas de avena con yogur natural.","Agrega manzana picada con cáscara y canela.","Termina con 2 o 3 nueces picadas."],k:"Sin azúcar añadida: la canela y la manzana dan el dulzor."},
+{n:"Huevo duro con palta y tomate",t:"Colación / cena",i:["huevos","palta","tomate","limón"],s:["Cuece 2 huevos 10 min y pélalos.","Corta tomate y un cuarto de palta.","Aliña con limón y un toque de merkén."],k:"Colación proteica que evita los picos de hambre."},
+{n:"Jurel a la plancha con ensalada de pepino",t:"Almuerzo / cena",i:["jurel","pepino","cebolla","limón","cilantro"],s:["Cocina el jurel a la plancha 4 min por lado.","Pica pepino, cebolla y cilantro y aliña con limón.","Sirve junto, sin pan."],k:"El jurel es un pescado económico y rico en omega 3."},
+{n:"Zapallitos italianos rellenos",t:"Almuerzo / cena",i:["zapallo italiano","posta de vacuno","tomate","cebolla","queso fresco"],s:["Parte los zapallitos y vacía un poco el centro.","Saltea la carne molida con cebolla, tomate y el centro picado.","Rellena, agrega queso fresco y hornea 20 min."],k:"Reemplazo de la pasta o el pastel de choclo con menos carbohidratos."}
 ];
 var sel={},ch=document.getElementById("chips");
+var EM={"pollo":"🍗","pavita":"🦃","merluza":"🐟","jurel":"🐟","salmón":"🐟","reineta":"🐟","atún en agua":"🐟","choritos":"🦪","posta de vacuno":"🥩","huevos":"🥚","queso fresco":"🧀","yogur natural":"🥛","lentejas":"🫘","porotos":"🫘","garbanzos":"🫘","quinoa":"🌾","avena":"🌾","arroz integral":"🍚","acelga":"🥬","espinaca":"🥬","lechuga":"🥬","repollo":"🥬","brócoli":"🥦","coliflor":"🥦","zapallo italiano":"🥒","zapallo camote":"🎃","zanahoria":"🥕","tomate":"🍅","pepino":"🥒","pimentón":"🫑","cebolla":"🧅","ajo":"🧄","choclo":"🌽","berenjena":"🍆","champiñones":"🍄","palta":"🥑","limón":"🍋","manzana":"🍎","nueces":"🌰"};
+function pic(r){if(r.img)return '<figure style="margin:0 0 8px"><img src="'+r.img+'" alt="'+r.n+'" loading="lazy" style="width:100%;max-height:200px;object-fit:cover;border-radius:8px"><figcaption class="tip">'+(r.c||"")+'</figcaption></figure>';
+ var e=[];r.i.forEach(function(x){var m=EM[x]||"";if(m&&e.indexOf(m)<0)e.push(m)});
+ return '<div class="pic" aria-hidden="true">'+(e.slice(0,4).join("")||"🥗")+'</div>'}
 function render(){
  var keys=Object.keys(sel).filter(function(k){return sel[k]});
  document.getElementById("cnt").textContent=keys.length+(keys.length==1?" ingrediente":" ingredientes");
@@ -87,7 +122,7 @@ function render(){
   .filter(function(o){return o.h>0}).sort(function(a,b){return b.h/b.r.i.length-a.h/a.r.i.length});
  if(!sc.length){out.innerHTML='<p class="sub">Ninguna receta coincide aún. Prueba sumar más ingredientes.</p>';return}
  out.innerHTML=sc.map(function(o){var r=o.r,p=Math.round(100*o.h/r.i.length);
-  return '<div class="rec"><span class="pct">'+p+'%</span><h3>'+r.n+'</h3><span class="tag">'+r.t+'</span>'+
+  return '<div class="rec">'+pic(r)+'<span class="pct">'+p+'%</span><h3>'+r.n+'</h3><span class="tag">'+r.t+'</span>'+
   (o.m.length?'<div class="miss">Te falta: '+o.m.join(", ")+'</div>':'<div class="tip">Tienes todo.</div>')+
   '<ol>'+r.s.map(function(s){return'<li>'+s+'</li>'}).join("")+'</ol><div class="tip">Consejo: '+r.k+'</div></div>'}).join("");
 }
